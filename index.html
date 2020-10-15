@@ -7,28 +7,30 @@
 <body>
 <script>
 	onload=()=>{
-if(localStorage.getItem(“tmp”)==undefined)
-localStorage.setItem(“tmp”,1);
-if(localStorage.getItem(“min”)==undefined)
-localStorage.setItem(“min”,1);
-if(localStorage.getItem(“max”)==undefined)
-localStorage.setItem(“max”,100);
+if(localStorage.getItem("tmp")==undefined)
+localStorage.setItem("tmp",1);
+if(localStorage.getItem("min")==undefined)
+localStorage.setItem("min",1);
+if(localStorage.getItem("max")==undefined)
+localStorage.setItem("max",100);
 while(1){
-	var t=“”;
-	if(window.confirm(“設定を行う？”)){
-	var tmp=parseInt(window.prompt(“何個の乱数を表示する？endと入力すると終了。”));
-　　var min=parseInt(window.prompt(“最小値は？”));
-	var max=parseInt(window.prompt(“最大値は？”));
-	localStorage.setItem(“tmp”,tmp);
-	localStorage.setItem(“min”,min);
-	localStorage.setItem(“max”,max);
+	var t="";
+	if(window.confirm("設定を行う？")){
+	var tmp=parseInt(window.prompt("何個の乱数を表示する？0と入力すると終了。"));
+        if(tmp==0)
+        break;
+　　var min=parseInt(window.prompt("最小値は？"));
+	var max=parseInt(window.prompt("最大値は？"));
+	localStorage.setItem("tmp",tmp);
+	localStorage.setItem("min",min);
+	localStorage.setItem("max",max);
 	}else{
-var tmp=parseInt(localStorage.getItem(“tmp”));
-var min=parseInt(localStorage.getItem(“min”));
-var max=parseInt(localStorage.getItem(“max”));
+var tmp=parseInt(localStorage.getItem("tmp"));
+var min=parseInt(localStorage.getItem("min"));
+var max=parseInt(localStorage.getItem("max"));
 }
 	for(let i=0;i<tmp;i++)
-	t+=((Math.floor(Math.random()*(max-min+1))+min)+” , “);
+	t+=((Math.floor(Math.random()*(max-min+1))+min)+" , ");
     window.alert(t);
 }
 }
