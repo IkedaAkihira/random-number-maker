@@ -8,7 +8,7 @@
 	<p>終了する場合は設定するか問われた際にokし、指示に従ってください。</p>
 <script>
 	onload=()=>{
-if(localStorage.getItem("tmp")==undefined)
+if(localStorage.getItem("tmp")==undefined||localStorage.getItem("tmp")==0)
 localStorage.setItem("tmp",1);
 if(localStorage.getItem("min")==undefined)
 localStorage.setItem("min",1);
@@ -16,7 +16,7 @@ if(localStorage.getItem("max")==undefined)
 localStorage.setItem("max",100);
 while(1){
 	var t="";
-	if(window.confirm("設定を行う？")){
+	if(window.confirm("設定を行う？終了も設定からできるよ。")){
 	var tmp=parseInt(window.prompt("何個の乱数を表示する？0と入力すると終了。"));
         if(tmp==0)
         break;
